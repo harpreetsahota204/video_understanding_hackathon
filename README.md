@@ -15,11 +15,39 @@ This workshop is where computer vision meets small data in domains that matter: 
 
 The recurring lesson from CV4Smalls is that **data curation beats model complexity**. 
 
-The [winning submission](https://arxiv.org/abs/2503.07821) in the 2025 Elderly Action Recognition Challenge didn't use a novel architecture — it used a 2019-era efficient model (TSM) and won by carefully selecting which training data to include. Synthetic dog renders from GTA V [outperformed real-data methods](https://github.com/mshooter/DigiDogs_release) for 3D pose estimation. A [drone-to-behavior pipeline](https://github.com/dirtmaxim/kabr) turned raw Kenyan wildlife footage into usable action recognition data through smart preprocessing alone.
+The [winning submission](https://arxiv.org/abs/2503.07821) in the 2025 Elderly Action Recognition Challenge didn't use a novel architecture, it used a 2019-era efficient model (TSM) and won by carefully selecting which training data to include. 
+
+Synthetic dog renders from GTA V [outperformed real-data methods](https://github.com/mshooter/DigiDogs_release) for 3D pose estimation. 
+
+A [drone-to-behavior pipeline](https://github.com/dirtmaxim/kabr) turned raw Kenyan wildlife footage into usable action recognition data through smart preprocessing alone.
 
 #### Your job today
 
-Build a [FiftyOne plugin](https://docs.voxel51.com/plugins/index.html) that leverages [Twelve Labs](https://docs.twelvelabs.io/) video understanding models (Marengo embeddings and/or Pegasus video-language generation) to solve a real problem in video understanding — especially in domains where labeled data is scarce and the stakes are high.
+Build a [FiftyOne plugin](https://docs.voxel51.com/plugins/index.html) that leverages [Twelve Labs](https://docs.twelvelabs.io/) video understanding models (Marengo embeddings and/or Pegasus video-language generation) to solve a real problem in video understanding.
+
+*Especially in domains where labeled data is scarce and the stakes are high.*
+
+## Schedule
+
+| Time | Activity |
+|---|---|
+| 10:00 AM | Welcome |
+| 10:15 AM | Find teammates |
+| 10:30 AM | Introduction to the hackathon |
+| 10:45 AM | Introduction to FiftyOne |
+| 11:00 AM | Using Twelve Labs Models |
+| 11:15 AM | Hands-on with Twelve Labs + FiftyOne |
+| 11:45 AM | Define your use case |
+| 12:00 PM | Catered Lunch 🍕 |
+| 12:30 PM | Hacking! |
+| | *By ~1:00 PM* — Dataset loaded in FiftyOne, Twelve Labs API calls working in a notebook |
+| | *By ~2:00 PM* — Core logic working (embeddings computed, Pegasus calls returning results, etc.) |
+| | *By ~2:30 PM* — Start wrapping your logic into a plugin (`fiftyone.yml` + `__init__.py`) |
+| 3:00 PM | **First push to GitHub** — repo with working plugin, even if rough |
+| | *3:00–4:30 PM* — Polish: handle edge cases, add progress bars, clean up the UI |
+| | *4:30–5:00 PM* — Write your README, record a quick demo GIF if you can |
+| 5:00 PM | **Final push to GitHub** — judging begins |
+
 
 ## What Success Looks Like
 
@@ -31,15 +59,28 @@ You need a working FiftyOne plugin that demonstrates a thoughtful approach to vi
 
 Concretely, a strong submission:
 
-- **Solves a real problem.** It addresses a genuine challenge in video understanding — whether that's curating training data, annotating behavior, finding anomalies, bridging domain gaps, or something we haven't thought of.
+- **Solves a real problem.** It addresses a genuine challenge in video understanding. Whether that's curating training data, annotating behavior, finding anomalies, bridging domain gaps, or something we haven't thought of.
 
-- **Uses data intentionally.** Inspired by CV4Smalls, the best plugins will show that *how* you work with data matters more than how much of it you have. Filtering, clustering, comparing, summarizing — these are the moves that win.
+- **Uses data intentionally.** Inspired by CV4Smalls, the best plugins will show that *how* you work with data matters more than how much of it you have. Filtering, clustering, comparing, summarizing, use better data to win.
 
 - **Ships as a plugin.** At minimum: a `fiftyone.yml`, an `__init__.py` with at least one working operator, and a README that explains what it does and how to use it. Pushed to GitHub by 5 PM.
 
 - **Leans on Twelve Labs.** Uses Marengo embeddings for semantic search/clustering/similarity, Pegasus for video-language generation/summarization/temporal grounding, or both.
 
 - **Could actually be used.** The best plugins are ones a researcher or practitioner in an underserved CV domain could install and get value from without writing code.
+
+
+## Awards
+
+Each category winner receives a **$100 Amazon gift card**.
+
+| Award | What it means |
+|---|---|
+| 🏆 **Grand Prize — Overall Champion** | Best plugin across the board: idea, execution, and presentation. |
+| 🧹 **Best Data Curation Plugin** | In the spirit of CV4Smalls: the plugin that best demonstrates that *how* you work with data matters more than how much of it you have. |
+| 🚀 **Most Deployable** | A plugin someone could actually `fiftyone plugins download`, install, and get value from today. Clean code, clear README, real utility. |
+| 🤡 **Least Useful (But Hilarious)** | Does it work? Technically. Should it exist? Debatable. Did it make the judges laugh? Absolutely. |
+
 
 ## Installation
 
@@ -70,7 +111,7 @@ set TWELVELABS_API_KEY=<YOUR_API_KEY>        # Windows cmd
 
 ### Windows users
 
-- Install Python from [python.org](https://www.python.org/downloads/) (64-bit) — **not** from the Microsoft Store. Check "Add Python to PATH" during installation.
+- Install Python from [python.org](https://www.python.org/downloads/) (64-bit), **not** from the Microsoft Store. Check "Add Python to PATH" during installation.
 
 - If you get a `psutil.NoSuchProcessExists` error when importing FiftyOne, install the [64-bit Visual C++ Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist).
 
@@ -88,17 +129,21 @@ Work through these notebooks to get up to speed with FiftyOne and Twelve Labs:
 
 [![](https://img.shields.io/badge/GitHub-Visual_AI_Worker_Safety_Kit-181717?logo=github)](https://github.com/nathanchess/visual-ai-worker-safety-kit) — End-to-end example of FiftyOne + Twelve Labs on the Safe & Unsafe Behaviours dataset
 
-The full FiftyOne docs are at [docs.voxel51.com](https://docs.voxel51.com) — the [User Guide](https://docs.voxel51.com/user_guide/index.html) and [Video Datasets](https://docs.voxel51.com/user_guide/using_datasets.html#video-datasets) sections are particularly relevant for today.
+The full FiftyOne docs are at [docs.voxel51.com](https://docs.voxel51.com).
+
+The [User Guide](https://docs.voxel51.com/user_guide/index.html) and [Video Datasets](https://docs.voxel51.com/user_guide/using_datasets.html#video-datasets) sections are particularly relevant for today.
 
 
 # Datasets
 
 ### Bring your own
 
-You're welcome to use any dataset you like — something you find online, something you record yourself, whatever fits your plugin idea. To get it into FiftyOne, see the [Importing Datasets guide](https://docs.voxel51.com/user_guide/import_datasets.html). For video specifically, check out these importers:
+You're welcome to use any dataset you like. It can be something you find online, something you record yourself, whatever fits your plugin idea. To get it into FiftyOne, see the [Importing Datasets guide](https://docs.voxel51.com/user_guide/import_datasets.html). For video specifically, check out these importers:
 
 - [`VideoDirectory`](https://docs.voxel51.com/user_guide/import_datasets.html#videodirectory) — a folder of video files, no labels
+
 - [`FiftyOneVideoLabelsDataset`](https://docs.voxel51.com/user_guide/import_datasets.html#fiftyonevideolabelsdataset) — video + per-frame JSON labels
+
 - [`VideoClassificationDirectoryTree`](https://docs.voxel51.com/user_guide/import_datasets.html#videoclassificationdirectorytree) — videos organized into class folders
 
 ### Pre-parsed datasets on Hugging Face
@@ -135,7 +180,7 @@ Here's what's available:
 
 ## Twelve Labs
 
-[Twelve Labs](https://www.twelvelabs.io/) builds video-native AI — models trained to see, hear, and reason about video as a unified whole. You have access to two foundation models via the [Twelve Labs API](https://docs.twelvelabs.io):
+[Twelve Labs](https://www.twelvelabs.io/) builds video-native AI models trained to see, hear, and reason about video as a unified whole. You have access to two foundation models via the [Twelve Labs API](https://docs.twelvelabs.io):
 
 **[Marengo 3.0](https://docs.twelvelabs.io/docs/guides/create-embeddings)** — Multimodal embedding model. Generates 512-d vectors in a shared space across video, audio, images, and text. Use it for semantic search, zero-shot classification, clustering, anomaly detection, and cross-modal retrieval. Videos up to 4 hours.
 
@@ -178,7 +223,7 @@ These repos contain working examples you can reference (and steal from):
 
 # Use AI to speed up development
 
-You're encouraged to use AI coding tools — this is a hackathon, not a purity test. We have resources specifically for this:
+You're encouraged to use AI coding tools. This is a hackathon, not a purity test. We have resources specifically for this:
 
 [![](https://img.shields.io/badge/GitHub-FiftyOne_Skills-181717?logo=github)](https://github.com/voxel51/fiftyone-skills) — prompt-ready skill files that give AI assistants deep context on FiftyOne's codebase. 
 
@@ -220,7 +265,7 @@ The best hackathon projects are the ones that solve a problem *you* care about.
 
 ### 🔎 Natural Language Video Search
 
-**Problem:** You want to find specific moments across a video dataset using plain English queries — no labels required.
+**Problem:** You want to find specific moments across a video dataset using plain English queries (no labels required).
 
 **Approach:** Index your dataset with Twelve Labs Marengo, then build an operator that accepts a text query and returns the most relevant video segments ranked by cosine similarity. Display matched clips in the FiftyOne App with similarity scores.
 
@@ -240,7 +285,7 @@ The best hackathon projects are the ones that solve a problem *you* care about.
 
 ### 🚨 Anomaly Detector
 
-**Problem:** You have hours of "normal" video and need to flag unusual events — without labeled examples of anomalies.
+**Problem:** You have hours of "normal" video and need to flag unusual events (without labeled examples of anomalies).
 
 **Approach:** Compute Marengo embeddings for temporal segments of your videos. Build a baseline distribution from known-normal clips. Flag segments whose embeddings are far from the baseline (by cosine distance or z-score). Visualize flagged segments on a timeline in a FiftyOne panel.
 
